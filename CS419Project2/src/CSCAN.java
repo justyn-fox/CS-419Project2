@@ -24,27 +24,27 @@ public class CSCAN implements IDiskAlgorithm {
 			}
 		}
 
-		int seek_count = 0;
-		int distance, cur_track;
+		int current_count = 0;
+		int distance, current_track;
 		for (DiskRequest request : right) {
-			cur_track = request.getTrack();
-			distance = Math.abs(cur_track - headPosition);
-			seek_count += distance;
-			headPosition = cur_track;
+			current_track = request.getTrack();
+			distance = Math.abs(current_track - headPosition);
+			current_count += distance;
+			headPosition = current_track;
 			System.out.println("Time of Arrival: " + request.getTimeOfArrival());
 		}
 
 		headPosition = 0;
-		seek_count += headPosition;
+		current_count += headPosition;
 
 		for (DiskRequest request : left) {
-			cur_track = request.getTrack();
-			distance = Math.abs(cur_track - headPosition);
-			seek_count += distance;
-			headPosition = cur_track;
+			current_track = request.getTrack();
+			distance = Math.abs(current_track - headPosition);
+			current_count += distance;
+			headPosition = current_track;
 			System.out.println("Time of Arrival: " + request.getTimeOfArrival());
 		}
 
-		return seek_count;
+		return current_count;
 	}
 }

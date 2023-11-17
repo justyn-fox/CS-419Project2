@@ -22,26 +22,26 @@ public class SCAN implements IDiskAlgorithm {
 			}
 		}
 
-		int seek_count = 0;
-		int distance, cur_track;
+		int current_count = 0;
+		int distance, currentTrack;
 		for (DiskRequest request : left) {
-			cur_track = request.getTrack();
-			distance = Math.abs(cur_track - headPosition);
-			seek_count += distance;
-			headPosition = cur_track;
+			currentTrack = request.getTrack();
+			distance = Math.abs(currentTrack - headPosition);
+			current_count += distance;
+			headPosition = currentTrack;
 			System.out.println("Process executed: " + request.getTrack());
 		}
 
 		Collections.reverse(right);
 
 		for (DiskRequest request : right) {
-			cur_track = request.getTrack();
-			distance = Math.abs(cur_track - headPosition);
-			seek_count += distance;
-			headPosition = cur_track;
+			currentTrack = request.getTrack();
+			distance = Math.abs(currentTrack - headPosition);
+			current_count += distance;
+			headPosition = currentTrack;
 			System.out.println("Process executed: " + request.getTrack());
 		}
 
-		return seek_count;
+		return current_count;
 	}
 }
