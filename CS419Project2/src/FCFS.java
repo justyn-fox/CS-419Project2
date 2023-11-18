@@ -16,7 +16,7 @@ public class FCFS implements IDiskAlgorithm {
 
 		for (DiskRequest request : requests) {
 			totalDistance = Math.abs(headPosition - request.getTrack());
-			System.out.println("request arrived @ " + request.getTimeOfArrival());
+			System.out.println("Request arrived @ " + request.getTimeOfArrival() + "was executed.");
 		}
 		return totalDistance;
 	}

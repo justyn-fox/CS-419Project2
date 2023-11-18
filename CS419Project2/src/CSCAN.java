@@ -31,7 +31,7 @@ public class CSCAN implements IDiskAlgorithm {
 			distance = Math.abs(current_track - headPosition);
 			current_count += distance;
 			headPosition = current_track;
-			System.out.println("Time of Arrival: " + request.getTimeOfArrival());
+			System.out.println("Executed: " + request.getTimeOfArrival());
 		}
 
 		headPosition = 0;
@@ -42,7 +42,7 @@ public class CSCAN implements IDiskAlgorithm {
 			distance = Math.abs(current_track - headPosition);
 			current_count += distance;
 			headPosition = current_track;
-			System.out.println("Time of Arrival: " + request.getTimeOfArrival());
+			System.out.println("Executed: " + request.getTimeOfArrival());
 		}
 
 		return current_count;
